@@ -13,6 +13,27 @@
     </header>
     <main id="main">
       <form name="personal-info" action="deliveryInfo/" aria-labelledby="form-label">
+        <h2>Personal Information</h2>
+        <fieldset>
+          <ol>
+            <li>
+              <label for="full-name">Full Name</label>
+              <input type="text" name="full-name" id="full-name"/>
+            </li>
+            <li>
+              <label for="email">Email Address</label>
+              <input type="email" name="email" id="email"/>
+            </li>
+            <li>
+              <label for="phone-number">Phone Number</label>
+              <input type="tel" name="phone-number" id="phone-number"/>
+            </li>
+            <li>
+              <input type="checkbox" name="create-account" id="create-account"/>
+              <label for="create-account">Create an account</label>
+          </li>
+          </ol>
+        </fieldset>
       </form>
     </main>
   <script src="assets/js/site.js"></script>
