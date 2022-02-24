@@ -70,3 +70,10 @@ nav[aria-hidden="true"],
 aside[aria-hidden="true"] {
   display: none;
 }
+
+#checkout-nav ol {
+  display: flex;
+}
+#checkout-nav li {
+  flex: 1 0 auto;
+}
