@@ -11,6 +11,22 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 html {
   font-family: "Lato", Helvetica, Arial, sans-serif;
-  font-size: 1.125em;       /* 18px /16px  = 1.125em*/
-  line-height: 1.333333em;  /* 24px / 18px = 1.333333em */
+  line-height: 1.5em;  /* 24px / 16px = 1.5em */
+}
+
+h1 {
+  font-size: 1.5em; /* 24px / 16px = 1.5em */
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.375em; /* 22px / 16px = 1.375em */
+}
+
+h3 {
+  font-size: 1.25em; /* 20px / 16px = 1.25em */
+}
+
+h4 {
+  font-size: 1.125em; /* 18px / 16px = 1.125em */
 }
