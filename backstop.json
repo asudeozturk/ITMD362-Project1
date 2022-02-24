@@ -1,5 +1,5 @@
 {
-  "id": "backstop_default",
+  "id": "project1_default",
   "viewports": [
     {
       "label": "phone",
@@ -10,6 +10,11 @@
       "label": "tablet",
       "width": 1024,
       "height": 768
+    },
+    {
+      "label": "big_tablet_landscape",
+      "width": 1800,
+      "height": 900
     }
   ],
   "onBeforeScript": "puppet/onBefore.js",
@@ -18,7 +23,7 @@
     {
       "label": "BackstopJS Homepage",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "https://garris.github.io/BackstopJS/",
+      "url": "http://localhost:8080/",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
