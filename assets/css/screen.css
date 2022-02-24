@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -14,7 +15,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 }
 
 html {
-  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-family: Lato, Helvetica, Arial, sans-serif;
   line-height: 1.5em;  /* 24px / 16px = 1.5em */
 }
 
@@ -67,7 +68,7 @@ input[type="radio"] {
 
 nav[aria-hidden="true"],
 aside[aria-hidden="true"],
-ol[aria-hidden="true"]{
+ol[aria-hidden="true"] {
   display: none;
 }
 
@@ -75,30 +76,38 @@ ol[aria-hidden="true"]{
   display: flex;
   justify-content: space-between;
 }
+
 #checkout-nav li {
   flex: auto 0 auto;
 }
+
 #checkout-nav img {
   width: 1em;     /*16px*/
 }
+
 #summary-header,
 #summary-items {
   border-bottom: 1px solid  black;
 }
+
 #summary-header {
   display: flex;
   justify-content: space-between;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 a:hover {
-    background: #DDD;
+  background: #DDD;
 }
-.nav-current-page{
+
+.nav-current-page {
   border-bottom: 1px solid #666;
 }
+
 .nav-heading {
   display: inline;
 }
@@ -119,11 +128,11 @@ fieldset[name="buttons"] {
   body {
     display: grid;
     grid-template-rows: 1.5em [header-start] auto [header-end]
-                        1.5em [checkout-nav-start summary-start] auto [checkout-nav-end]
-                        1.5em [main-start] auto [main-end summary-end];
+      1.5em [checkout-nav-start summary-start] auto [checkout-nav-end]
+      1.5em [main-start] auto [main-end summary-end];
     grid-template-columns: 1.5em [header-start checkout-nav-start main-start]
-                           auto [header-end checkout-nav main-end] 3em
-                           [summary-start] auto [summary-end] 4.5em;
+      auto [header-end checkout-nav main-end] 3em
+      [summary-start] auto [summary-end] 4.5em;
   }
 
   #header {
