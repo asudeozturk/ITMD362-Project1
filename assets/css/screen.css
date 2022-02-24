@@ -67,7 +67,8 @@ input[type="radio"] {
 }
 
 nav[aria-hidden="true"],
-aside[aria-hidden="true"] {
+aside[aria-hidden="true"],
+ol[aria-hidden="true"]{
   display: none;
 }
 
