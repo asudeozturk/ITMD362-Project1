@@ -9,6 +9,10 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 /* Begin site styles below */
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-family: "Lato", Helvetica, Arial, sans-serif;
   line-height: 1.5em;  /* 24px / 16px = 1.5em */
@@ -29,4 +33,22 @@ h3 {
 
 h4 {
   font-size: 1.125em; /* 18px / 16px = 1.125em */
+}
+
+button,
+input,
+label,
+select {
+  display: block;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+}
+
+.checkbox-field,
+.radio-field {
+  display: flex;
+  align-items: baseline;
 }
