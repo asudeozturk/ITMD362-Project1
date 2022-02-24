@@ -65,3 +65,8 @@ input[type="radio"] {
   display: flex;
   align-items: baseline;
 }
+
+nav[aria-hidden="true"],
+aside[aria-hidden="true"] {
+  display: none;
+}
