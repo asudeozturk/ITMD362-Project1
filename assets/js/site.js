@@ -7,7 +7,7 @@ navigationBar.setAttribute('aria-hidden', 'true');
 summary.setAttribute('disabled', 'disabled');
 summary.setAttribute('aria-hidden', 'true');
 
-if(window.innerWidth >= 400) { //show checkout-nav at minimum 400px
+if(window.innerWidth >= 450) { //show checkout-nav at minimum 400px
   navigationBar.removeAttribute('disabled');
   navigationBar.setAttribute('aria-hidden', 'false');
 }
@@ -17,7 +17,7 @@ if(window.innerWidth >= 800) { //show summary at minimum 800px
 }
 
 window.addEventListener('resize', function(event) {
-  if(window.innerWidth >= 400) {
+  if(window.innerWidth >= 450) {
     navigationBar.removeAttribute('disabled');
     navigationBar.setAttribute('aria-hidden', 'false');
   } else {
