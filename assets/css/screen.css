@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -7,3 +8,9 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 /* stylelint-enable */
 
 /* Begin site styles below */
+
+html {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 1.125em;       /* 18px /16px  = 1.125em*/
+  line-height: 1.333333em;  /* 24px / 18px = 1.333333em */
+}
