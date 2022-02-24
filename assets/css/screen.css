@@ -81,6 +81,13 @@ ol[aria-hidden="true"]{
 #checkout-nav img {
   width: 1em;     /*16px*/
 }
+#summary-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid  black;
+}
+
+
 .nav-heading {
   display: inline;
 }
@@ -99,7 +106,7 @@ form {
                         1.5em [main-start] auto [main-end summary-end];
     grid-template-columns: 1.5em [header-start checkout-nav-start main-start]
                            auto [header-end checkout-nav main-end] 3em
-                           [summary-start] auto [summary-end] 1.5em;
+                           [summary-start] auto [summary-end] 4.5em;
   }
 
   #header {
