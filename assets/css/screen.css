@@ -84,6 +84,11 @@ aside[aria-hidden="true"] {
   display: inline;
 }
 
+form {
+  display: grid;
+  grid-gap: 1.5em;
+}
+
 @media screen and (min-width: 50em) { /* 800px/16px */
 
   body {
