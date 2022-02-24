@@ -83,3 +83,29 @@ aside[aria-hidden="true"] {
 .nav-heading {
   display: inline;
 }
+
+@media screen and (min-width: 50em) { /* 800px/16px */
+
+  body {
+    display: grid;
+    grid-template-rows: 1.5em [header-start] auto [header-end]
+                        1.5em [checkout-nav-start summary-start] auto [checkout-nav-end]
+                        1.5em [main-start] auto [main-end summary-end];
+    grid-template-columns: 1.5em [header-start checkout-nav-start main-start]
+                           auto [header-end checkout-nav main-end] 3em
+                           [summary-start] auto [summary-end] 1.5em;
+  }
+
+  #header {
+    grid-area: header;
+  }
+  #checkout-nav {
+    grid-area: checkout-nav;
+  }
+  #main {
+    grid-area: main;
+  }
+  #summary {
+    grid-area: summary;
+  }
+}

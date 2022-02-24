@@ -12,8 +12,8 @@ if(window.innerWidth >= 450) { //show checkout-nav at minimum 400px
   navigationBar.setAttribute('aria-hidden', 'false');
 }
 if(window.innerWidth >= 800) { //show summary at minimum 800px
-  navigationBar.removeAttribute('disabled');
-  navigationBar.setAttribute('aria-hidden', 'false');
+  summary.removeAttribute('disabled');
+  summary.setAttribute('aria-hidden', 'false');
 }
 
 window.addEventListener('resize', function(event) {
