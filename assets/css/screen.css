@@ -81,12 +81,18 @@ ol[aria-hidden="true"]{
 #checkout-nav img {
   width: 1em;     /*16px*/
 }
+#summary-header,
+#summary-items {
+  border-bottom: 1px solid  black;
+}
 #summary-header {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid  black;
 }
-
+#summary-header a{
+  text-decoration: none;
+  color: inherit;
+}
 
 .nav-heading {
   display: inline;
