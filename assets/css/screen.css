@@ -121,6 +121,24 @@ fieldset[name="buttons"] {
   display: flex;
   justify-content: space-between;
 }
+ol[name="city-state-zip"]{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 50%;
+}
+
+ol[name="month-year"] {
+  width: 50%;
+  display: flex;
+}
+ol[name="city-state-zip"] input,
+ol[name="city-state-zip"] select,
+ol[name="month-year"] select {
+  width: 100%;
+}
+
+
 
 
 @media screen and (min-width: 50em) { /* 800px/16px */
@@ -131,7 +149,7 @@ fieldset[name="buttons"] {
       1.5em [checkout-nav-start summary-start] auto [checkout-nav-end]
       1.5em [main-start] auto [main-end summary-end];
     grid-template-columns: 1.5em [header-start checkout-nav-start main-start]
-      auto [header-end checkout-nav main-end] 3em
+      auto [header-end checkout-nav main-end] 5em
       [summary-start] auto [summary-end] 4.5em;
   }
 
