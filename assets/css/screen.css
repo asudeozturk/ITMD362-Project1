@@ -17,6 +17,8 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 html {
   font-family: Lato, Helvetica, Arial, sans-serif;
   line-height: 1.5em;  /* 24px / 16px = 1.5em */
+  padding: 1.5em;
+  background: #FFFAFA;
 }
 
 h1 {
@@ -127,6 +129,7 @@ form {
 fieldset[name="buttons"] {
   display: flex;
   justify-content: space-between;
+  background-color: inherit;
 }
 ol[name="city-state-zip"]{
   display: flex;
@@ -145,7 +148,11 @@ ol[name="month-year"] select {
   width: 100%;
 }
 
-
+fieldset, aside, nav{
+  padding: 0.5em;
+  border-radius: 0.3125em;
+  background: #F5F5F5;
+}
 
 
 @media screen and (min-width: 50em) { /* 800px/16px */
