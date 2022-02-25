@@ -43,17 +43,23 @@ select {
 }
 
 input,
-select {
-  width: 50%;
+select,
+button {
+  background-color: inherit;
   font-size: inherit;
   font-family: inherit;
   line-height: inherit;
   padding: 0;
+  border: 1px solid #666;
+  border-radius: 0.3125em; /* 5px/16px */
+}
+input,select {
+  width: 50%;
+}
+button {
+  padding: 0.3125em; /* 5px/16px */
+}
 
-}
-select {
-  background-color: inherit;
-}
 
 input[type="checkbox"],
 input[type="radio"] {
