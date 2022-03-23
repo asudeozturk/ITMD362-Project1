@@ -160,21 +160,17 @@ fieldset[name="buttons"] {
   justify-content: space-between;
   background-color: inherit;
 }
-ol[name="city-state-zip"]{
+ol[name="month-year"]{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 5px;
   width: 50%;
 }
-
-ol[name="month-year"] {
-  width: 50%;
-  display: flex;
-}
-ol[name="city-state-zip"] input,
+ol[name="month-year"] select,
 ol[name="city-state-zip"] select,
-ol[name="month-year"] select {
-  width: 100%;
+ol[name="city-state-zip"] input{
+  width: auto;
+  
 }
 
 fieldset, aside{
