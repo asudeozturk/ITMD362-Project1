@@ -170,8 +170,8 @@ ol[name="month-year"]{
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-  align-items: flex-start;
 }
+
 ol[name="month-year"] select,
 ol[name="month-year"] input,
 ol[name="city-state-zip"] li,
@@ -179,12 +179,7 @@ input[name="cvv-number"]{
   width: auto;
 }
 
-ol[name="expiration-and-cvv"] {
-  display: flex;
-  flex-wrap: wrap;
-  width: 50%;
-  justify-content: space-between;
-}
+
 
 fieldset, aside{
   padding: 0.5em;
@@ -241,7 +236,9 @@ select {
       [state-start] auto [state-end];
   }
   ol[name="city-state-zip"] input,
-  ol[name="city-state-zip"] select {
+  ol[name="city-state-zip"] select,
+  ol[name="expiration-and-cvv"] input,
+  ol[name="expiration-and-cvv"] select {
     width: 100%;
   }
   #city {
@@ -252,5 +249,18 @@ select {
   }
   #zip {
     grid-area: zip;
+  }
+
+  ol[name="expiration-and-cvv"] {
+    display: grid;
+    width: 50%;
+    grid-template-rows: [expiration-start cvv-start] auto [expiration-end cvv-end];
+    grid-template-columns: [expiration-start] auto [expiration-end] 10% [cvv-start] auto [cvv-end];
+  }
+  #expiration {
+    grid-area: expiration;
+  }
+  #cvv {
+    grid-area: cvv;
   }
 }
