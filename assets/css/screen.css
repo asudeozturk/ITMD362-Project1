@@ -222,9 +222,9 @@ select {
     grid-template-rows: 1.5em [header-start] auto [header-end]
       1.5em [checkout-nav-start summary-start] auto [checkout-nav-end]
       1.5em [main-start] auto [main-end summary-end];
-    grid-template-columns: 1.5em [header-start checkout-nav-start main-start]
-      auto [header-end checkout-nav main-end] 5em
-      [summary-start] auto [summary-end] 4.5em;
+    grid-template-columns: 5% [header-start checkout-nav-start main-start]
+      50% [header-end checkout-nav main-end] 5%
+      [summary-start] 35% [summary-end] 5%;
   }
 
   #header {
