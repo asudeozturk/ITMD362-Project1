@@ -92,19 +92,20 @@ ol[aria-hidden="true"] {
   display: flex;
   flex-basis: 100%;
   align-items: flex-end;
+  justify-content: flex-end;
 }
 
-#checkout-nav li::before {
+#checkout-nav .nav-complete-page::before {
   align-self: center;
   border-bottom: 1px solid;
   content: "\00a0"; /* white space */
   margin: 0 0.3125em; /* 5px/16px */
   width: 100%;
 }
-#checkout-nav li:first-child{
+#checkout-nav .nav-complete-page:first-child{
   flex: 1 0 auto;
 }
-#checkout-nav li:first-child::before {
+#checkout-nav .nav-complete-page:first-child::before {
   display: none;
 }
 
@@ -133,10 +134,10 @@ figure {
   align-items: center;
 }
 
+
 .nav-complete-page {
   color: #0e8fab;
 }
-
 
 form {
   display: grid;
@@ -171,6 +172,12 @@ fieldset, aside{
   background: #fdfdfd;
 }
 
+#personal-info-page .current-page-heading,
+#delivery-page .current-page-heading,
+#payment-page .current-page-heading,
+#review-page .current-page-heading {
+  font-weight: 800;
+}
 
 @media screen and (min-width: 50em) { /* 800px/16px */
 
