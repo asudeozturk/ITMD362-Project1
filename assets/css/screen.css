@@ -59,11 +59,13 @@ button {
 input,select {
   width: 50%;
 }
-button {
+button,
+.back-button {
   padding: 0.3125em 0.625em ; /* 5px/16px  and 10px/16px*/
   background-color: #f1795a;
   border: none;
   color: white;
+  border-radius: 0.375em; /* 6px/16px */
 }
 
 
