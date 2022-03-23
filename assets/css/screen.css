@@ -48,8 +48,7 @@ select {
 
 input,
 select,
-button,
-a {
+button{
   background-color: inherit;
   font-size: inherit;
   font-family: inherit;
@@ -141,7 +140,10 @@ img {
   display: flex;
   justify-content: space-between;
 }
-
+#summary p {
+  font-size: 0.875em;
+  color: #666;
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -181,7 +183,9 @@ input[name="cvv-number"]{
   width: auto;
 }
 
-
+#summary a {
+  width: min-content;
+}
 
 fieldset, aside{
   padding: 0.5em;
@@ -264,5 +268,30 @@ select {
   }
   #cvv {
     grid-area: cvv;
+  }
+
+  #summary-items li {
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    grid-template-columns: max-content 1fr max-content;
+    column-gap: 2%;
+    row-gap: 5%;
+  }
+
+  .item {
+    grid-column: 1;
+    grid-row : span 2;
+  }
+  .item-name {
+    grid-column: 2;
+    grid-row : 1;
+  }
+  .item-price {
+    grid-column: 3;
+    grid-row : 1;
+  }
+  .item-size {
+    grid-column: 2;
+    grid-row : 2;
   }
 }
