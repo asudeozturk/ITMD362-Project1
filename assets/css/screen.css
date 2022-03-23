@@ -29,6 +29,7 @@ h1 {
 h2 {
   font-size: 1.375em; /* 22px / 16px = 1.375em */
   color: #0e8fab;
+  padding-bottom: 0.5em; /* 8/16px*/
 }
 
 h3 {
@@ -54,12 +55,15 @@ a {
   font-family: inherit;
   line-height: inherit;
   padding: 0;
-  border: 1px solid #666;
-  border-radius: 0.3125em; /* 5px/16px */
+  border: 1px solid #aaa;
+  border-radius: 3px; /* 5px/16px */
 }
 input,select {
   width: 50%;
+  margin-bottom: 0.5em; /* 8/16px*/
+  padding: 0.1875em; /* 3/16px*/
 }
+
 button{
   padding: 0.3125em 0.625em ; /* 5px/16px  and 10px/16px*/
   background-color: #f1795a;
@@ -184,6 +188,10 @@ fieldset, aside{
 #payment-page .current-page-heading,
 #review-page .current-page-heading {
   font-weight: 800;
+}
+
+input:focus {
+  background-color: #f3f5f9;
 }
 
 @media screen and (min-width: 50em) { /* 800px/16px */
