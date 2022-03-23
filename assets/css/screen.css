@@ -106,19 +106,25 @@ ol[aria-hidden="true"] {
   justify-content: flex-end;
 }
 
-#checkout-nav .nav-complete-page::before {
+#checkout-nav li::before {
   align-self: center;
   border-bottom: 1px solid;
   content: "\00a0"; /* white space */
   margin: 0 0.3125em; /* 5px/16px */
   width: 100%;
 }
-#checkout-nav .nav-complete-page:first-child{
+#checkout-nav li:first-child{
   flex: 1 0 auto;
 }
-#checkout-nav .nav-complete-page:first-child::before {
+#checkout-nav li:first-child::before{
   display: none;
 }
+
+#checkout-nav li:not(.nav-complete-page)::before{
+  color:transparent;
+}
+
+
 
 #checkout-nav img {
   width: 1.25em;     /* 20px/16px */
@@ -164,13 +170,28 @@ ol[name="month-year"]{
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-  width: 50%;
+  align-items: flex-start;
 }
 ol[name="month-year"] select,
+ol[name="month-year"] input,
 ol[name="city-state-zip"] select,
-ol[name="city-state-zip"] input{
+ol[name="city-state-zip"] input,
+input[name="cvv-number"]{
   width: auto;
+}
+
+ol[name="expiration-and-cvv"] {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  justify-content: space-between;
+}
+ol[name="city-state-zip"] {
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
   
+  justify-content: space-between;
 }
 
 fieldset, aside{
@@ -188,6 +209,10 @@ fieldset, aside{
 
 input:focus {
   background-color: #f3f5f9;
+}
+
+select {
+  height: 32px;
 }
 
 @media screen and (min-width: 50em) { /* 800px/16px */
