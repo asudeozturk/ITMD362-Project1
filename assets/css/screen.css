@@ -134,16 +134,18 @@ img {
 #summary-header,
 #summary-items {
   border-bottom: 1px solid  black;
+  margin-bottom: 0.5em; /* 8/16px */
 }
 
 #summary-header {
   display: flex;
   justify-content: space-between;
 }
-#summary p {
+#summary-items p {
   font-size: 0.875em;
   color: #666;
 }
+
 a {
   text-decoration: none;
   color: inherit;
@@ -293,5 +295,19 @@ select {
   .item-size {
     grid-column: 2;
     grid-row : 2;
+  }
+
+  #summary-footer {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .summary-desc {
+    grid-column: 1;
+  }
+  .summary-price {
+    grid-column: 2;
+    justify-self: end;
   }
 }
