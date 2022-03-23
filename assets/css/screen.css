@@ -47,7 +47,8 @@ select {
 
 input,
 select,
-button {
+button,
+a {
   background-color: inherit;
   font-size: inherit;
   font-family: inherit;
@@ -59,15 +60,19 @@ button {
 input,select {
   width: 50%;
 }
-button,
-.back-button {
+button{
   padding: 0.3125em 0.625em ; /* 5px/16px  and 10px/16px*/
   background-color: #f1795a;
   border: none;
   color: white;
   border-radius: 0.375em; /* 6px/16px */
 }
-
+.back-button {
+  padding: 0.3125em 0.625em ; /* 5px/16px  and 10px/16px*/
+  border:  1px solid #f1795a;
+  color: #f1795a;
+  border-radius: 0.375em; /* 6px/16px */
+}
 
 input[type="checkbox"],
 input[type="radio"] {
