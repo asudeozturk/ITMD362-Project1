@@ -108,14 +108,6 @@ a {
   color: inherit;
 }
 
-a:hover,
-button:hover {
-  background: #DDD;
-}
-
-.nav-current-page {
-  border-bottom: 1px solid #666;
-}
 
 .nav-heading {
   display: inline;
