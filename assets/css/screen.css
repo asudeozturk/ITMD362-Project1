@@ -138,14 +138,14 @@ img {
 #summary-header {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #aaa;
 }
 #summary-items p {
   font-size: 0.875em;
   color: #666;
 }
 
-#summary-footer {
+#summary-footer,
+#summary-items {
   border-top: 1px solid  #aaa;
   padding-top: 0.5em;
 }
@@ -200,8 +200,9 @@ fieldset{
 }
 aside {
   border-left: 1px solid #0e8fab;
-  padding: 0.5em;
+  padding:  0 0.5em;
 }
+
 #personal-info-page .current-page-heading,
 #delivery-page .current-page-heading,
 #payment-page .current-page-heading,
