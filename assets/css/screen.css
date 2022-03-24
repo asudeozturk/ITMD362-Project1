@@ -234,7 +234,6 @@ select {
     grid-template-columns: 5% [header-start checkout-nav-start main-start]
       50% [header-end checkout-nav main-end] 5%
       [summary-start] 35% [summary-end] 5%;
-    align-items: start;
   }
 
   #header { 
