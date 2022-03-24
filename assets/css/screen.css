@@ -28,7 +28,6 @@ h1 {
 
 h2 {
   font-size: 1.375em; /* 22px / 16px = 1.375em */
-  color: #0e8fab;
   padding-bottom: 0.5em; /* 8/16px*/
 }
 
@@ -132,18 +131,23 @@ img {
   width: 5em;
 }
 #summary-header,
-#summary-items {
-  border-bottom: 1px solid  black;
+#summary-items{
   margin-bottom: 0.5em; /* 8/16px */
 }
 
 #summary-header {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #aaa;
 }
 #summary-items p {
   font-size: 0.875em;
   color: #666;
+}
+
+#summary-footer {
+  border-top: 1px solid  #aaa;
+  padding-top: 0.5em;
 }
 
 a {
@@ -189,12 +193,15 @@ input[name="cvv-number"]{
   width: min-content;
 }
 
-fieldset, aside{
+fieldset{
   padding: 0.5em;
   border-radius: 0.3125em;
   background: #fdfdfd;
 }
-
+aside {
+  border-left: 1px solid #0e8fab;
+  padding: 0.5em;
+}
 #personal-info-page .current-page-heading,
 #delivery-page .current-page-heading,
 #payment-page .current-page-heading,
