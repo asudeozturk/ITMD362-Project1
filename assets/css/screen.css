@@ -137,8 +137,10 @@ img {
   width: 5em;
 }
 #summary-header,
-#summary-items{
+#summary-items,
+#summary-bottom{
   margin-bottom: 0.5em; /* 8/16px */
+  padding: 0 0.5em;
 }
 
 #summary-header {
@@ -424,5 +426,11 @@ button:hover, .back-button:hover, #place-order-btn:hover{
   }
   #show-btn{
     display: none;
+  }
+  #summary-header,
+  #summary-items,
+  #summary-bottom{
+  
+    padding: 0;
   }
 }
