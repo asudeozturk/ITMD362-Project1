@@ -63,7 +63,7 @@ button{
   border-radius: 3px; /* 5px/16px */
 }
 input,select {
-  width: 50%;
+  width: 100%;
   margin-bottom: 0.5em; /* 8/16px*/
   padding: 0.1875em; /* 3/16px*/
 }
@@ -356,11 +356,16 @@ button:hover, .back-button:hover, #place-order-btn:hover{
   cursor: pointer;
 }
 
+
 @media screen and (min-width: 31.25em) { /* 500px/16px */
   #review-page main li{
     display: grid;
     grid-template-columns: 0.5fr 1fr;
   }
+  input,select {
+    width: 60%;
+  }
+  
 }
 
 @media screen and (min-width: 50em) { /* 800px/16px */
