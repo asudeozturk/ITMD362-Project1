@@ -42,13 +42,15 @@ if(formPersonal) {
   formPersonal.addEventListener('submit', function(event) {
     var targetElement = event.target;
     event.preventDefault(); 
+    saveData(targetElement.name); 
     window.location.href = targetElement.action;
   });
 }
 if(formDelivery) {
   formDelivery.addEventListener('submit', function(event) {
     var targetElement = event.target;
-    event.preventDefault(); 
+    event.preventDefault();
+    saveData(targetElement.name); 
     window.location.href = targetElement.action;
   });
 
@@ -56,7 +58,47 @@ if(formDelivery) {
 if(formPayment) {
   formPayment.addEventListener('submit', function(event) {
     var targetElement = event.target;
-    event.preventDefault(); 
+    event.preventDefault();
+    saveData(targetElement.name);
     window.location.href = targetElement.action;
   });
+}
+
+function saveData(form) {
+  var data = getLocalStorage(form);
+  var allInputs= document.forms[form].elements;
+  for (var i = 0; i < allInputs.length; i++) {
+    if (allInputs[i].value !== "") {
+      data[allInputs[i].name] = allInputs[i].value;
+    }
+  }
+  saveJsonData(form, data); 
+}
+
+function getLocalStorage(form) {
+  var formJs = readJsonData(form);
+  if(Object.keys(formJs).length === 0) {
+    saveJsonData(form, formJs);
+  }
+  return formJs;
+}
+
+function saveJsonData(form, formJs) {
+  localStorage.setItem(form, JSON.stringify(formJs));
+}
+
+function readJsonData(form) {
+  var formJson = localStorage.getItem(form);
+  var formJs = {};
+
+  if(formJson) {
+    try {
+      formJs = JSON.parse(formJson);
+    }
+    catch(error) {
+      console.error(e);
+      formJs = {};
+    }
+  }
+  return formJs;
 }
