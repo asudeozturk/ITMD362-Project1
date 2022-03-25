@@ -39,6 +39,7 @@ var formDelivery = document.querySelector('form[name=delivery-info]');
 var formPayment = document.querySelector('form[name=payment]');
 
 if(formPersonal) {
+  getFormData(formPersonal.name);
   formPersonal.addEventListener('submit', function(event) {
     var targetElement = event.target;
     event.preventDefault(); 
@@ -47,6 +48,7 @@ if(formPersonal) {
   });
 }
 if(formDelivery) {
+  getFormData(formDelivery.name);
   formDelivery.addEventListener('submit', function(event) {
     var targetElement = event.target;
     event.preventDefault();
@@ -56,6 +58,7 @@ if(formDelivery) {
 
 }
 if(formPayment) {
+  getFormData(formPayment.name);
   formPayment.addEventListener('submit', function(event) {
     var targetElement = event.target;
     event.preventDefault();
@@ -101,4 +104,13 @@ function readJsonData(form) {
     }
   }
   return formJs;
+}
+
+function getFormData(form) {
+  var formJs = readJsonData(form);
+  var data = Object.entries(formJs);
+  var allInputs = document.forms[form].elements;
+  for (var i = 0; i < data.length; i++) {
+    allInputs[data[i][0]].value = data[i][1];
+  }
 }
