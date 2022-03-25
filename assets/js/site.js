@@ -62,6 +62,7 @@ if(formDelivery) {
 }
 if(formPayment) {
   getFormData(formPayment.name);
+  handleBillingOption();
   formPayment.addEventListener('submit', function(event) {
     var targetElement = event.target;
     event.preventDefault();
@@ -236,8 +237,61 @@ function handlePrice() {
   });
 }
 
+function handleBillingOption() {
+  
+  var newBillingAddress = document.querySelector('#new-billing-address');
+  var same = document.querySelector('#same');
+  var different = document.querySelector('#different');
+  
+  if(same.checked) {
+    newBillingAddress.setAttribute('disabled', 'disabled');
+    newBillingAddress.setAttribute('aria-hidden', 'true');
+    document.querySelector('#billing-address').required = false;
+    document.querySelector('#billing-city').required = false;
+    document.querySelector('#billing-state').required = false;
+    document.querySelector('#billing-zip').required = false;
+    saveBillingOption("same");
+  }
+  else {
+    newBillingAddress.removeAttribute('disabled');
+    newBillingAddress.setAttribute('aria-hidden', 'false');
+    document.querySelector('#billing-address').required = true;
+    document.querySelector('#billing-city').required = true;
+    document.querySelector('#billing-state').required = true;
+    document.querySelector('#billing-zip').required = true; 
+    saveBillingOption("different");
+  }
+
+  different.addEventListener("RadioStateChange", function(event) {
+    if(event.target.checked) {
+      newBillingAddress.removeAttribute('disabled');
+      newBillingAddress.setAttribute('aria-hidden', 'false');
+      document.querySelector('#billing-address').required = true;
+      document.querySelector('#billing-city').required = true;
+      document.querySelector('#billing-state').required = true;
+      document.querySelector('#billing-zip').required = true;
+      saveBillingOption("different");
+    } 
+    else {
+      newBillingAddress.setAttribute('disabled', 'disabled');
+      newBillingAddress.setAttribute('aria-hidden', 'true');
+      document.querySelector('#billing-address').required = false;
+      document.querySelector('#billing-city').required = false;
+      document.querySelector('#billing-state').required = false;
+      document.querySelector('#billing-zip').required = false;
+      saveBillingOption("same");
+    }
+  });
+}
+
 function saveDeliveryOption(type) {
   var data = getLocalStorage('delivery-info');
   data['delivery-option'] = type;
   saveJsonData('delivery-info', data); 
+}
+
+function saveBillingOption(type) {
+  var data = getLocalStorage('payment');
+  data['billing-option'] = type;
+  saveJsonData('payment', data);  
 }
