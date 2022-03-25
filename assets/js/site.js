@@ -33,20 +33,3 @@ window.addEventListener('resize', function(event) {
     summary.setAttribute('aria-hidden', 'true');
   }
 });
-
-
-var newBillingRadio = document.querySelector('#different');
-var newBillingAddress = document.querySelector('#new-billing-address');
-
-newBillingAddress.setAttribute('disabled', 'disabled');
-newBillingAddress.setAttribute('aria-hidden', 'true');
-
-newBillingRadio.addEventListener("RadioStateChange", function(event) {
-  if(event.target.checked) {
-    newBillingAddress.removeAttribute('disabled');
-    newBillingAddress.setAttribute('aria-hidden', 'false');
-  } else {
-    newBillingAddress.setAttribute('disabled', 'disabled');
-    newBillingAddress.setAttribute('aria-hidden', 'true');
-  }
-});
