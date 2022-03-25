@@ -1,5 +1,60 @@
 'use strict';
 
+var summary = document.querySelector('#summary');
+var smHeader = document.querySelector('#summary-header');
+var smItems = document.querySelector('#summary-items');
+var smFooter = document.querySelector('#summary-footer');
+var showButton = document.querySelector('#show-btn');
+
+if(window.innerWidth < 800){
+  closeSummary();
+  smHeader.classList.add('js');
+  smItems.classList.add('js');
+  smFooter.classList.add('js');
+}
+
+showButton.addEventListener('click', function(event) {
+  if(showButton.innerText === "Show")
+    openSummary();   
+  else
+    closeSummary();
+});
+
+window.addEventListener('resize', function(event) {
+  if(window.innerWidth >=800) {
+    openSummary();
+    smHeader.classList.remove('js');
+    smItems.classList.remove('js');
+    smFooter.classList.remove('js');
+  }
+  else if(window.innerWidth < 800 && !smHeader.classList.contains("js")) {
+    closeSummary();
+    smHeader.classList.add('js');
+    smItems.classList.add('js');
+    smFooter.classList.add('js');
+  }
+  
+});
+
+function openSummary() {
+  showButton.innerText = "Hide";
+    smHeader.setAttribute('aria-hidden', 'false');
+    smItems.setAttribute('aria-hidden', 'false');
+    smFooter.setAttribute('aria-hidden', 'false');
+    smHeader.removeAttribute('disabled');
+    smItems.removeAttribute('disabled');
+    smFooter.removeAttribute('disabled');
+}
+function closeSummary() {
+  showButton.innerText = "Show";
+  smHeader.setAttribute('aria-hidden', 'true');
+  smItems.setAttribute('aria-hidden', 'true');
+  smFooter.setAttribute('aria-hidden', 'true');
+  smFooter.setAttribute('aria-hidden', 'true');
+  smHeader.setAttribute('disabled', 'disabled');
+  smItems.setAttribute('disabled', 'disabled');
+  smFooter.setAttribute('disabled', 'disabled');
+}
 var formPersonal = document.querySelector('form[name=personal-info]');
 var formDelivery = document.querySelector('form[name=delivery-info]');
 var formPayment = document.querySelector('form[name=payment]');
