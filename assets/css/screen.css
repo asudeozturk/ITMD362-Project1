@@ -181,6 +181,7 @@ fieldset[name="buttons"] {
   display: flex;
   justify-content: space-between;
   background-color: inherit;
+  padding: 0;
 }
 ol[name="month-year"]{
   display: flex;
@@ -322,6 +323,29 @@ select {
   display: none;
 }
 
+body {
+  display: grid;
+  grid-template-rows: 1em [header-start] max-content [header-end]
+    1em [checkout-nav-start] max-content [checkout-nav-end]
+    1em [summary-start] max-content[summary-end]1em[main-start] max-content [main-end];
+  grid-template-columns: 2% [header-start checkout-nav-start summary-start main-start]
+    auto [header-end checkout-nav summary-end main-end] 2%;
+}
+
+#header { 
+  grid-area: header;
+  justify-self: center;
+}
+#checkout-nav {
+  grid-area: checkout-nav;
+}
+#main {
+  grid-area: main;
+}
+#summary {
+  grid-area: summary;
+}
+
 @media screen and (min-width: 31.25em) { /* 500px/16px */
   #review-page main li{
     display: grid;
@@ -333,26 +357,12 @@ select {
 
   body {
     display: grid;
-    grid-template-rows: 1.5em [header-start] max-content [header-end]
-      1.5em [checkout-nav-start summary-start] max-content [checkout-nav-end]
-      1.5em [main-start] max-content [main-end summary-end];
+    grid-template-rows: 1em [header-start] max-content [header-end]
+      1em [checkout-nav-start summary-start] max-content [checkout-nav-end]
+      1em [main-start] max-content [main-end summary-end];
     grid-template-columns: 5% [header-start checkout-nav-start main-start]
       50% [header-end checkout-nav main-end] 5%
       [summary-start] 35% [summary-end] 5%;
-  }
-
-  #header { 
-    grid-area: header;
-    justify-self: center;
-  }
-  #checkout-nav {
-    grid-area: checkout-nav;
-  }
-  #main {
-    grid-area: main;
-  }
-  #summary {
-    grid-area: summary;
   }
 
   ol[name="city-state-zip"]{
