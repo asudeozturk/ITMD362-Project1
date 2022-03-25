@@ -49,6 +49,7 @@ if(formPersonal) {
 }
 if(formDelivery) {
   getFormData(formDelivery.name);
+  handleGiftOption();
   renderDeliveryData();
   formDelivery.addEventListener('submit', function(event) {
     var targetElement = event.target;
@@ -149,4 +150,41 @@ function renderDeliveryData() {
     }
   }
   saveData('delivery-info');
+}
+
+function handleGiftOption() {
+  var gift = document.querySelector('#gift');
+  var fullName = document.querySelector('#full-name');
+  var phoneNum = document.querySelector('#phone-number');
+  
+  if(gift.checked){
+    fullName.setAttribute("placeholder", "Recipient's name");
+    phoneNum.setAttribute("placeholder", "Recipient's phone");
+    fullName.value =null;
+    phoneNum.value = null;
+    gift.value="on";
+  }
+  else{
+    fullName.setAttribute("placeholder", "");
+    phoneNum.setAttribute("placeholder", "");
+    gift.value="off";
+  }
+
+  gift.addEventListener('change', function(event){
+    if(gift.checked){
+      fullName.setAttribute("placeholder", "Recipient's name");
+      phoneNum.setAttribute("placeholder", "Recipient's phone");
+      fullName.value =null;
+      phoneNum.value = null;
+      gift.value="on";
+      saveData('delivery-info');
+    }
+    else{
+      document.querySelector('#full-name').removeAttribute("placeholder");
+      document.querySelector('#phone-number').removeAttribute("placeholder");
+      gift.value="off";
+      saveData('delivery-info');
+      renderDeliveryData();
+    }
+  });
 }
