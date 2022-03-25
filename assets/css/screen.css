@@ -268,8 +268,7 @@ select {
 #summary-bar{
   margin-top: 0.5em;
   border-radius: 0.375em;
-  color: #d75459;
-  border: 1px solid #d75459;
+  border: 1px solid rgb(63,127,128);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -347,6 +346,7 @@ body {
 }
 #show-btn, #items-edit, .edit-link {
   text-decoration: underline;
+  cursor: pointer;
 }
 button:hover, .back-button:hover, #place-order-btn:hover{
   transition: all .1s ease-in-out;
