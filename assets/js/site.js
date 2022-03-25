@@ -126,7 +126,11 @@ function renderDeliveryData() {
 
   var formJs = readJsonData('delivery-info');
   var data = Object.entries(formJs);
-  gift.value = data[0][1];
+  for (var i = 0; i < data.length; i++) {
+    if(data[i][0]=== "gift") {
+      gift.value =  data[i][1];
+    }
+  }
   if(gift.value === "off"){
     var formJs = readJsonData('personal-info');
     var data = Object.entries(formJs);
@@ -214,21 +218,21 @@ function handlePrice() {
     saveDeliveryOption("one-day");
   }
   
-  freeDel.addEventListener("RadioStateChange", function(event) {
+  freeDel.addEventListener("click", function(event) {
     if(event.target.checked) {
       shipping.innerText = "$0.00"
       total.innerText = "$93.43";
       saveDeliveryOption("free");
     }
   });
-  twoDayDel.addEventListener("RadioStateChange", function(event) {
+  twoDayDel.addEventListener("click", function(event) {
     if(event.target.checked) {
       shipping.innerText = "$7.00"
       total.innerText = "$100.43";
       saveDeliveryOption("two-day");
     }
   });
-  oneDayDel.addEventListener("RadioStateChange", function(event) {
+  oneDayDel.addEventListener("click", function(event) {
     if(event.target.checked) {
       shipping.innerText = "$10.00";
       total.innerText = "$103.43";
@@ -262,7 +266,7 @@ function handleBillingOption() {
     saveBillingOption("different");
   }
 
-  different.addEventListener("RadioStateChange", function(event) {
+  different.addEventListener("click", function(event) {
     if(event.target.checked) {
       newBillingAddress.removeAttribute('disabled');
       newBillingAddress.setAttribute('aria-hidden', 'false');
@@ -272,7 +276,10 @@ function handleBillingOption() {
       document.querySelector('#billing-zip').required = true;
       saveBillingOption("different");
     } 
-    else {
+   
+  });
+  same.addEventListener("click", function(event) {
+    if(event.target.checked) {
       newBillingAddress.setAttribute('disabled', 'disabled');
       newBillingAddress.setAttribute('aria-hidden', 'true');
       document.querySelector('#billing-address').required = false;
@@ -280,8 +287,9 @@ function handleBillingOption() {
       document.querySelector('#billing-state').required = false;
       document.querySelector('#billing-zip').required = false;
       saveBillingOption("same");
-    }
+    } 
   });
+  
 }
 
 function saveDeliveryOption(type) {
