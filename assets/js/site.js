@@ -49,6 +49,7 @@ if(formPersonal) {
 }
 if(formDelivery) {
   getFormData(formDelivery.name);
+  handlePrice();
   handleGiftOption();
   renderDeliveryData();
   formDelivery.addEventListener('submit', function(event) {
@@ -187,4 +188,56 @@ function handleGiftOption() {
       renderDeliveryData();
     }
   });
+}
+
+function handlePrice() {
+  var freeDel = document.querySelector('#free');
+  var twoDayDel = document.querySelector('#two-day');
+  var oneDayDel = document.querySelector('#one-day');
+  var shipping = document.querySelector('#shipping-price');
+  var total = document.querySelector('#total-price');
+
+  if(freeDel.checked) {
+    shipping.innerText = "$0.00"
+    total.innerText = "$93.43";
+    saveDeliveryOption("free");
+  }
+  if(twoDayDel.checked) {
+    shipping.innerText = "$7.00"
+    total.innerText = "$100.43";
+    saveDeliveryOption("two-day");
+  }
+  if(oneDayDel.checked){
+    shipping.innerText = "$10.00";
+    total.innerText = "$103.43";
+    saveDeliveryOption("one-day");
+  }
+  
+  freeDel.addEventListener("RadioStateChange", function(event) {
+    if(event.target.checked) {
+      shipping.innerText = "$0.00"
+      total.innerText = "$93.43";
+      saveDeliveryOption("free");
+    }
+  });
+  twoDayDel.addEventListener("RadioStateChange", function(event) {
+    if(event.target.checked) {
+      shipping.innerText = "$7.00"
+      total.innerText = "$100.43";
+      saveDeliveryOption("two-day");
+    }
+  });
+  oneDayDel.addEventListener("RadioStateChange", function(event) {
+    if(event.target.checked) {
+      shipping.innerText = "$10.00";
+      total.innerText = "$103.43";
+      saveDeliveryOption("one-day");
+    }
+  });
+}
+
+function saveDeliveryOption(type) {
+  var data = getLocalStorage('delivery-info');
+  data['delivery-option'] = type;
+  saveJsonData('delivery-info', data); 
 }
