@@ -37,6 +37,7 @@ window.addEventListener('resize', function(event) {
 var formPersonal = document.querySelector('form[name=personal-info]');
 var formDelivery = document.querySelector('form[name=delivery-info]');
 var formPayment = document.querySelector('form[name=payment]');
+var reviewPage = document.querySelector('#review-page');
 
 if(formPersonal) {
   getFormData(formPersonal.name);
@@ -69,6 +70,9 @@ if(formPayment) {
     saveData(targetElement.name);
     window.location.href = targetElement.action;
   });
+}
+if(reviewPage){
+  showAllData();
 }
 
 function saveData(form) {
@@ -162,7 +166,7 @@ function handleGiftOption() {
   var gift = document.querySelector('#gift');
   var fullName = document.querySelector('#full-name');
   var phoneNum = document.querySelector('#phone-number');
-  
+
   if(gift.checked){
     fullName.setAttribute("placeholder", "Recipient's name");
     phoneNum.setAttribute("placeholder", "Recipient's phone");
@@ -302,4 +306,27 @@ function saveBillingOption(type) {
   var data = getLocalStorage('payment');
   data['billing-option'] = type;
   saveJsonData('payment', data);  
+}
+
+function showAllData() {
+  var form = readJsonData('personal-info');
+  document.querySelector('#name').innerText = form['full-name'];
+  document.querySelector('#email').innerText = form['email'];
+  document.querySelector('#phone').innerText = form['phone-number'];
+
+  form = readJsonData('delivery-info');
+  document.querySelector('#name-s').innerText = form['full-name'];
+  document.querySelector('#phone-s').innerText = form["phone-number"];
+  document.querySelector('#address-s').innerText = 
+  form['shipping-address'] + ' ' + form['shipping-address-two'] + ' ' +
+    form['shipping-city'] + ' ' +form['shipping-state'] + ' ' +
+    form['shipping-zip'] + ' ';
+  
+  form = readJsonData('payment');
+  document.querySelector('#address-b').innerText = form['billing-address'] + ' ' + 
+    form['billing-address-two'] + ' '+ form['billing-city'] + ' ' + 
+    form['billing-state'] + ' ' + form['billing-zip'] + ' ';
+  document.querySelector('#card-name').innerText = form['card-name'];
+  var num = form['card-number'];
+  document.querySelector('#card-num').innerText = num.substring(num.length - 4);
 }
