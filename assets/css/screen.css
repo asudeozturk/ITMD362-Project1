@@ -345,6 +345,14 @@ body {
 #summary {
   grid-area: summary;
 }
+#show-btn, #items-edit, .edit-link {
+  text-decoration: underline;
+}
+button:hover, .back-button:hover, #place-order-btn:hover{
+  transition: all .1s ease-in-out;
+  box-shadow: 0.15em 0.15em 0.25em #aaa;
+  cursor: pointer;
+}
 
 @media screen and (min-width: 31.25em) { /* 500px/16px */
   #review-page main li{
