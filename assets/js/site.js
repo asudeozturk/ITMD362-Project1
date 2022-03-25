@@ -33,3 +33,30 @@ window.addEventListener('resize', function(event) {
     summary.setAttribute('aria-hidden', 'true');
   }
 });
+
+var formPersonal = document.querySelector('form[name=personal-info]');
+var formDelivery = document.querySelector('form[name=delivery-info]');
+var formPayment = document.querySelector('form[name=payment]');
+
+if(formPersonal) {
+  formPersonal.addEventListener('submit', function(event) {
+    var targetElement = event.target;
+    event.preventDefault(); 
+    window.location.href = targetElement.action;
+  });
+}
+if(formDelivery) {
+  formDelivery.addEventListener('submit', function(event) {
+    var targetElement = event.target;
+    event.preventDefault(); 
+    window.location.href = targetElement.action;
+  });
+
+}
+if(formPayment) {
+  formPayment.addEventListener('submit', function(event) {
+    var targetElement = event.target;
+    event.preventDefault(); 
+    window.location.href = targetElement.action;
+  });
+}
