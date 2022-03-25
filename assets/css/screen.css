@@ -231,6 +231,48 @@ select {
   top: 0;
   left: 1em;
 }
+#review-page main {
+  display: flex;
+  flex-direction: column;
+}
+
+#review-page main h4 {
+  display: inline;
+  font-weight: 500;
+}
+#review-page main p {
+  font-size: 0.9em;
+}
+#review-page main section {
+  margin-bottom: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#review-page main ol {
+  grid-column : span 2;
+}
+.edit-link {
+  color: rgb(63,127,128);
+  justify-self: end;
+}
+#place-order-btn {
+  background-color: #d75459;
+  border: none;
+  color: white;
+  border-radius: 0.375em; /* 6px/16px */
+  padding: 0.4em 0;
+  width: 40%;
+  text-align: center;
+  display: block;
+  align-self: center;
+}
+
+@media screen and (min-width: 31.25em) { /* 500px/16px */
+  #review-page main li{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+  }
+}
 
 @media screen and (min-width: 50em) { /* 800px/16px */
 
