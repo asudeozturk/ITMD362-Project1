@@ -49,6 +49,7 @@ if(formPersonal) {
 }
 if(formDelivery) {
   getFormData(formDelivery.name);
+  renderDeliveryData();
   formDelivery.addEventListener('submit', function(event) {
     var targetElement = event.target;
     event.preventDefault();
@@ -113,4 +114,39 @@ function getFormData(form) {
   for (var i = 0; i < data.length; i++) {
     allInputs[data[i][0]].value = data[i][1];
   }
+}
+
+function renderDeliveryData() {
+  var gift = document.querySelector('#gift');
+  var fullName = document.querySelector('#full-name');
+  var phoneNum = document.querySelector('#phone-number');
+
+  var formJs = readJsonData('delivery-info');
+  var data = Object.entries(formJs);
+  gift.value = data[0][1];
+  if(gift.value === "off"){
+    var formJs = readJsonData('personal-info');
+    var data = Object.entries(formJs);
+    gift.checked = false;
+    for (var i = 0; i < data.length; i++) {
+      if(data[i][0]=== "full-name") {
+        fullName.value =  data[i][1];
+      }
+      if(data[i][0]=== "phone-number") {
+        phoneNum.value = data[i][1];
+      }
+    }
+  }
+  else {
+    gift.checked = true;
+    for (var i = 0; i < data.length; i++) {
+      if(data[i][0]=== "full-name") {
+        fullName.value =  data[i][1];
+      }
+      if(data[i][0]=== "phone-number") {
+        phoneNum.value = data[i][1];
+      }
+    }
+  }
+  saveData('delivery-info');
 }
