@@ -288,15 +288,22 @@ function handleBillingOption() {
   if(same.checked) {
     newBillingAddress.setAttribute('disabled', 'disabled');
     newBillingAddress.setAttribute('aria-hidden', 'true');
+    document.querySelector('#billing-address').setAttribute("aria-required", "false");
+    document.querySelector('#billing-city').setAttribute("aria-required", "false");
+    document.querySelector('#billing-zip').setAttribute("aria-required", "false");
     document.querySelector('#billing-address').required = false;
     document.querySelector('#billing-city').required = false;
     document.querySelector('#billing-state').required = false;
     document.querySelector('#billing-zip').required = false;
+
     saveBillingOption("same");
   }
   else {
     newBillingAddress.removeAttribute('disabled');
     newBillingAddress.setAttribute('aria-hidden', 'false');
+    document.querySelector('#billing-address').setAttribute("aria-required", "true");
+    document.querySelector('#billing-city').setAttribute("aria-required", "true");
+    document.querySelector('#billing-zip').setAttribute("aria-required", "true");
     document.querySelector('#billing-address').required = true;
     document.querySelector('#billing-city').required = true;
     document.querySelector('#billing-state').required = true;
@@ -308,6 +315,9 @@ function handleBillingOption() {
     if(event.target.checked) {
       newBillingAddress.removeAttribute('disabled');
       newBillingAddress.setAttribute('aria-hidden', 'false');
+      document.querySelector('#billing-address').setAttribute("aria-required", "true");
+     document.querySelector('#billing-city').setAttribute("aria-required", "true");
+      document.querySelector('#billing-zip').setAttribute("aria-required", "true");
       document.querySelector('#billing-address').required = true;
       document.querySelector('#billing-city').required = true;
       document.querySelector('#billing-state').required = true;
@@ -319,6 +329,9 @@ function handleBillingOption() {
     if(event.target.checked) {
       newBillingAddress.setAttribute('disabled', 'disabled');
       newBillingAddress.setAttribute('aria-hidden', 'true');
+      document.querySelector('#billing-address').setAttribute("aria-required", "false");
+      document.querySelector('#billing-city').setAttribute("aria-required", "false");
+      document.querySelector('#billing-zip').setAttribute("aria-required", "false");
       document.querySelector('#billing-address').required = false;
       document.querySelector('#billing-city').required = false;
       document.querySelector('#billing-state').required = false;
