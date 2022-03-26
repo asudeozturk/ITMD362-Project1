@@ -101,9 +101,16 @@ function saveData(form) {
   var allInputs= document.forms[form].elements;
   for (var i = 0; i < allInputs.length; i++) {
     if (allInputs[i].value !== "") {
-      data[allInputs[i].name] = allInputs[i].value;
+      if(allInputs[i].name==="billing-option" ||
+        allInputs[i].name==="delivery-option" ) {
+        if(allInputs[i].checked)
+          data[allInputs[i].name] = allInputs[i].value;
+      }
+      else 
+        data[allInputs[i].name] = allInputs[i].value;
     }
   }
+
   saveJsonData(form, data); 
 }
 
@@ -301,7 +308,6 @@ function handleBillingOption() {
       document.querySelector('#billing-zip').required = true;
       saveBillingOption("different");
     } 
-   
   });
   same.addEventListener("click", function(event) {
     if(event.target.checked) {
@@ -344,9 +350,14 @@ function showAllData() {
     form['shipping-zip'] + ' ';
   
   form = readJsonData('payment');
-  document.querySelector('#address-b').innerText = form['billing-address'] + ' ' + 
+  if(form["billing-option"] ==="different"){
+    document.querySelector('#address-b').innerText = form['billing-address'] + ' ' + 
     form['billing-address-two'] + ' '+ form['billing-city'] + ' ' + 
     form['billing-state'] + ' ' + form['billing-zip'] + ' ';
+  }
+  else{
+    document.querySelector('#address-b').innerText = document.querySelector('#address-s').innerText;
+  }
   document.querySelector('#card-name').innerText = form['card-name'];
   var num = form['card-number'];
   document.querySelector('#card-num').innerText = num.substring(num.length - 4);
