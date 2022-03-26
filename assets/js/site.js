@@ -344,16 +344,17 @@ function showAllData() {
   form = readJsonData('delivery-info');
   document.querySelector('#name-s').innerText = form['full-name'];
   document.querySelector('#phone-s').innerText = form["phone-number"];
-  document.querySelector('#address-s').innerText = 
-  form['shipping-address'] + ' ' + form['shipping-address-two'] + ' ' +
-    form['shipping-city'] + ' ' +form['shipping-state'] + ' ' +
-    form['shipping-zip'] + ' ';
+  document.querySelector('#address-s').innerText = form['shipping-address'] + ' ' 
+  + (form['shipping-address-two'] ? form['shipping-address-two']: '')+ ' ' 
+  + form['shipping-city'] + ' ' +form['shipping-state'] + ' ' 
+  + form['shipping-zip'] + ' ';
   
   form = readJsonData('payment');
   if(form["billing-option"] ==="different"){
-    document.querySelector('#address-b').innerText = form['billing-address'] + ' ' + 
-    form['billing-address-two'] + ' '+ form['billing-city'] + ' ' + 
-    form['billing-state'] + ' ' + form['billing-zip'] + ' ';
+    document.querySelector('#address-b').innerText = form['billing-address'] + ' '
+    + (form['billing-address-two'] ? form['billing-address-two'] : '') + ' '
+    + form['billing-city'] + ' ' + form['billing-state'] + ' ' 
+    + form['billing-zip'] + ' ';
   }
   else{
     document.querySelector('#address-b').innerText = document.querySelector('#address-s').innerText;
