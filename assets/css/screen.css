@@ -50,6 +50,9 @@ label,
 select {
   display: block;
 }
+label {
+  margin-top: 0.5em; /* 8/16px*/
+}
 
 input,
 select,
@@ -64,7 +67,6 @@ button{
 }
 input,select {
   width: 100%;
-  margin-bottom: 0.5em; /* 8/16px*/
   padding: 0.1875em; /* 3/16px*/
 }
 
@@ -356,6 +358,12 @@ button:hover, .back-button:hover, #place-order-btn:hover{
   cursor: pointer;
 }
 
+p[class$="-error"] {
+  color: #d75459;
+}
+#shipping-address-two, #billing-address-two {
+  margin-top: 0.5em;
+}
 
 @media screen and (min-width: 31.25em) { /* 500px/16px */
   #review-page main li{
