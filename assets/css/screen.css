@@ -364,7 +364,10 @@ p[class$="-error"] {
 #shipping-address-two, #billing-address-two {
   margin-top: 0.5em;
 }
-
+#complete-page body{
+  display: block;
+  text-align: center;
+}
 @media screen and (min-width: 31.25em) { /* 500px/16px */
   #review-page main li{
     display: grid;
