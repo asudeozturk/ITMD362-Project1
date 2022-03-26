@@ -43,107 +43,107 @@
     <main id="main">
       <section id="personal-review">
         <h4>Personal Information</h4>
-        <a href="../" class="edit-link">Edit</a>
+        <a href="../" class="edit-link" aria-label="edit personal info">Edit</a>
         <ol>
           <li>
-            <p>Name</p>
-            <p id="name"></p>
+            <p id="name-title">Name</p>
+            <p id="name" aria-labelledby="name-title"></p>
           </li>
           <li>
-            <p>Email</p>
-            <p id="email"></p>
+            <p id="email-title">Email</p>
+            <p id="email" aria-labelledby="email-title"></p>
           </li>
           <li>
-            <p>Phone</p>
-            <p id="phone"></p>
+            <p id="phone-title">Phone</p>
+            <p id="phone" aria-labelledby="phone-title"></p>
           </li>
         </ol>
       </section>
       <section id="delivery-review">
         <h4>Delivery Information</h4>
-        <a href="../delivery" class="edit-link">Edit</a>
+        <a href="../delivery" class="edit-link" aria-label="edit delivery info">Edit</a>
         <ol>
           <li>
-            <p>Name</p>
-            <p id="name-s"></p>
+            <p id="recipient-title">Name</p>
+            <p id="name-s" aria-labelledby="recipient-title"></p>
           </li>
           <li>
-            <p>Phone</p>
-            <p id="phone-s"></p>
+            <p id="recipient-phone-title">Phone</p>
+            <p id="phone-s" aria-labelledby="recipient-phone-title"></p>
           </li>
           <li>
-            <p>Shipping Address</p>
-            <p id="address-s"></p>
+            <p id="address-title">Shipping Address</p>
+            <p id="address-s" aria-labelledby="address-title"></p>
           </li>
         </ol>
       </section>
       <section id="payment-review">
         <h4>Payment Information</h4>
-        <a href="../payment" class="edit-link">Edit</a>
+        <a href="../payment" class="edit-link" aria-label="edit payment info">Edit</a>
         <ol>
           <li>
-            <p>Billing Address</p>
-            <p id="address-b"></p>
+            <p id="billing-title">Billing Address</p>
+            <p id="address-b" aria-labelledby="billing-title"></p>
           </li>
           <li>
-            <p>Name on Card</p>
-            <p id="card-name"></p>
+            <p id="card-name-title">Name on Card</p>
+            <p id="card-name" aria-labelledby="card-name-title"></p>
           </li>
           <li>
-            <p>Credit Card ending with</p>
-            <p id="card-num"></p>
+            <p id="card-title">Credit Card ending with</p>
+            <p id="card-num" aria-labelledby="card-title"></p>
           </li>
         </ol>
       </section>
-      <a href="../complete" id="place-order-btn">Place Order</a>
+      <a href="../complete" id="place-order-btn" aria-label="place order button">Place Order</a>
 
     </main>
     <aside id="summary">
       <section id="summary-bar">
         <h2>Summary</h2>
-        <p id="show-btn">Show</p>
+        <p id="show-btn" aria-label="show summary button">Show</p>
       </section>
       <section id="summary-header">
         <h3>Items</h3>
-        <a href="" id="items-edit">Edit</a>
+        <a href="" id="items-edit" aria-label="edit items button">Edit</a>
       </section>
       <section id="summary-items">
         <ol>
           <li>
             <a href="https://www.flaticon.com/free-icons/shoes" class="item" title="shoes icons">
-              <img src="../assets/img/sneakers.png" alt="sneakers"/>
+              <img src="assets/img/sneakers.png" alt="sneakers"/>
             </a>
-            <p class="item-name">Red Sneakers</p>
-            <p class="item-size">Size: 9M</p>
-            <p class="item-price">$59.99</p>
+            <p class="item-name" aria-label="item name">Red Sneakers</p>
+            <p class="item-size" aria-label="item size">Size: 9M</p>
+            <p class="item-price" aria-label="item price">$59.99</p>
           </li>
           <li>
             <a href="https://www.flaticon.com/free-icons/backpack" class="item" title="backpack icons">
-              <img src="../assets/img/backpack.png" alt="backpack"/>
+              <img src="assets/img/backpack.png" alt="backpack"/>
             </a>
-            <p class="item-name">Large Backpack</p>
-            <p class="item-size">Size: Standard</p>
-            <p class="item-price">$24.99</p>
+            <p class="item-name" aria-label="item name">Large Backpack</p>
+            <p class="item-size" aria-label="item size ">Size: Standard</p>
+            <p class="item-price" aria-label="item price">$24.99</p>
           </li>
           <li>
             <a href="https://www.flaticon.com/free-icons/cap" class="item" title="cap icons">
-              <img src="../assets/img/cap.png" alt="cap"/>
+              <img src="assets/img/cap.png" alt="cap"/>
             </a>
-            <p class="item-name">Waterproof Running Cap</p>
-            <p class="item-size">Size: Standard</p>
-            <p class="price">$8.45</p>
+            <p class="item-name" aria-label="item name">Waterproof Running Cap</p>
+            <p class="item-size" aria-label="item size">Size: Standard</p>
+            <p class="price" aria-label="item price">$8.45</p>
           </li>
         </ol>
       </section>
       <section id="summary-footer">
         <h4 class="summary-desc">Subtotal</h4>
-        <p class="summary-price">$93.43</p>
+        <p class="summary-price" aria-label="subtotal">$93.43</p>
         <h4 class="summary-desc">Shipping</h4>
-        <p class="summary-price" id="shipping-price">$0.00</p>
+        <p class="summary-price" id="shipping-price" aria-label="shipping price">$0.00</p>
         <h4 class="summary-desc">Sales Tax</h4>
-        <p class="summary-price">$0.00</p>
+        <p class="summary-price" aria-label="sales tax">$0.00</p>
         <h4 class="summary-desc">TOTAL</h4>
-        <p class="summary-price" id="total-price">$93.43</p>
+        <p class="summary-price" id="total-price" aria-label="total price">$93.43</p>
       </section>
     </aside>
     <script src="../assets/js/site.js"></script>
