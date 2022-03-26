@@ -2,7 +2,6 @@
   "name": "itmd362-project1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "directories": {
     "test": "tests"
   },
@@ -19,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/asudeozturk/ITMD362-Project1/issues"
   },
-  "homepage": "https://github.com/asudeozturk/ITMD362-Project1#readme"
+  "homepage": "https://github.com/asudeozturk/ITMD362-Project1#readme",
+  "devDependencies": {
+    "backstopjs": "^6.0.4"
+  }
 }
