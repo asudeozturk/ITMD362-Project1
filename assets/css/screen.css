@@ -71,7 +71,7 @@ input,select {
 }
 
 button{
-  padding: 0.3125em 0.625em ; /* 5px/16px  and 10px/16px*/
+  padding: 0.3125em 1.5em ; /* 5px/16px  and 10px/16px*/
   background-color: #d75459;
   border: none;
   color: white;
