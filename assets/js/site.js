@@ -65,8 +65,10 @@ if(formPersonal) {
   formPersonal.addEventListener('submit', function(event) {
     var targetElement = event.target;
     event.preventDefault(); 
-    saveData(targetElement.name); 
-    window.location.href = targetElement.action;
+    if(checkInputPersonal()){
+      saveData(targetElement.name); 
+      window.location.href = targetElement.action;
+    }
   });
 }
 if(formDelivery) {
@@ -77,8 +79,10 @@ if(formDelivery) {
   formDelivery.addEventListener('submit', function(event) {
     var targetElement = event.target;
     event.preventDefault();
-    saveData(targetElement.name); 
-    window.location.href = targetElement.action;
+    if(checkInputDelivery()){
+      saveData(targetElement.name); 
+      window.location.href = targetElement.action;
+    }
   });
 
 }
@@ -88,8 +92,10 @@ if(formPayment) {
   formPayment.addEventListener('submit', function(event) {
     var targetElement = event.target;
     event.preventDefault();
-    saveData(targetElement.name);
-    window.location.href = targetElement.action;
+    if(checkInputPayment()){
+      saveData(targetElement.name);
+      window.location.href = targetElement.action;
+    }
   });
 }
 if(reviewPage){
@@ -362,4 +368,111 @@ function showAllData() {
   document.querySelector('#card-name').innerText = form['card-name'];
   var num = form['card-number'];
   document.querySelector('#card-num').innerText = num.substring(num.length - 4);
+}
+
+function checkInputPersonal() {
+  var fullName = document.querySelector('#full-name');
+  var phoneNum = document.querySelector('#phone-number');
+  const regexName = /^[a-z ,.'-]+$/i;
+  const regexPhone = /^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+
+  const isValidName = regexName.test(fullName.value);
+  const isValidPhone = regexPhone.test(phoneNum.value);
+
+  showError(fullName, isValidName, 'Name cannot contain numbers/special characters except .,\'-');
+  showError(phoneNum, isValidPhone, 'Phone number formatted incorrectly');
+  
+  return isValidName && isValidPhone;
+
+}
+
+function checkInputDelivery() {
+  var fullName = document.querySelector('#full-name');
+  var phoneNum = document.querySelector('#phone-number');
+  var city = document.querySelector('#shipping-city');
+  var state = document.querySelector('#shipping-state');
+  var zip = document.querySelector('#shipping-zip');
+  const regexName = /^[a-z ,.'-]+$/i;
+  const regexPhone = /^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+  const regexCity = /^[a-zA-z .]+$/;
+  const regexZip = /^[0-9]{5}(?:-[0-9]{4})?$/;
+
+  const isValidName = regexName.test(fullName.value);
+  const isValidPhone = regexPhone.test(phoneNum.value);
+  const isValidCity = regexCity.test(city.value);
+  const isValidState = state.value != '--';
+  const isValidZip = regexZip.test(zip.value);
+  var parentEl = document.querySelector('ol[name=city-state-zip]');
+  
+  showError(fullName, isValidName, 'Name cannot contain numbers/special characters except .,\'-');
+  showError(phoneNum, isValidPhone, 'Phone number formatted incorrectly');
+  showError(city, isValidCity, "City cannot contain numbers or special characters",parentEl);
+  showError(state, isValidState, "Please select a state", parentEl);
+  showError(zip, isValidZip, "ZIP code formatted incorrectly", parentEl);
+  
+  return isValidName && isValidPhone && isValidCity && isValidState && isValidZip;
+}
+
+function checkInputPayment() {
+  var city = document.querySelector('#billing-city');
+  var state = document.querySelector('#billing-state');
+  var zip = document.querySelector('#billing-zip');
+
+  var name = document.querySelector('#card-name');
+  var cardNum = document.querySelector('#card-number');
+  var cardCvv = document.querySelector('#cvv-number');
+  
+  const regexName = /^[a-z ,.'-]+$/i;
+  const regexCity = /^[a-zA-z .]+$/;
+  const regexZip = /^[0-9]{5}(?:-[0-9]{4})?$/;
+  const regexCardNum = /^[0-9]{13,19}$/; //accepts 13-19 digits
+  const regexCvv = /^[0-9]{3,4}$/;
+
+  var isValidAddress = true;
+  var newBillingAddress = document.querySelector('#new-billing-address')
+
+  if(newBillingAddress.getAttribute("disabled") != "disabled") {
+    const isValidCity = regexCity.test(city.value);
+    const isValidState = state.value != '--';
+    const isValidZip = regexZip.test(zip.value);
+    isValidAddress = isValidCity && isValidState && isValidZip;
+    
+    var parentEl = document.querySelector('ol[name=city-state-zip]');
+    showError(city, isValidCity, "City cannot contain numbers or special characters",parentEl);
+    showError(state, isValidState, "Please select a state", parentEl);
+    showError(zip, isValidZip, "ZIP code formatted incorrectly", parentEl);
+
+  }
+
+  const isValidName = regexName.test(name.value);
+  const isValidNum = regexCardNum.test(cardNum.value);
+  const isValidCvv= regexCvv.test(cardCvv.value);
+
+  var parentEl = document.querySelector('ol[name=expiration-and-cvv]');
+  showError(name, isValidName, 'Name cannot contain numbers/special characters except .,\'-');
+  showError(cardNum, isValidNum, 'Card number must be 13-19 digits');
+  showError(cardCvv, isValidCvv, 'CVV number must be 3-4 digits', parentEl);
+
+  return isValidAddress && isValidName && isValidNum && isValidCvv;
+
+}
+
+function showError(element, condition, errorText, parentEl) {
+  var errorClass = element.name + '-error';
+  var error = document.querySelector('.' + errorClass);
+  if (!condition) {
+    if (!error) {
+      error = document.createElement('p');
+      error.className = errorClass;
+      error.innerText = errorText;
+      if(parentEl)
+        parentEl.after(error);
+      else
+        element.after(error);
+    }
+  }
+  else {
+    if(error)
+      error.remove();
+  }
 }
