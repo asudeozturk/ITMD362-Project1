@@ -36,7 +36,7 @@ body {
     auto [header-end checkout-nav summary-end main-end] 2%;
 }
 
-#header { 
+#header {
   grid-area: header;
   justify-self: center;
 }
@@ -98,16 +98,19 @@ a {
   text-decoration: none;
 }
 
-button{
+button {
   background-color: #d75459;
   border: none;
   border-radius: 0.375em; /* 6px/16px */
   color: white;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
   padding: 0.3125em 1.5em ; /* 5px/16px  and 10px/16px*/
 }
 
 .back-button {
-  border:  0.0625em solid #d75459;
+  border: 0.0625em solid #d75459;
   border-radius: 0.375em; /* 6px/16px */
   color: #d75459;
   padding: 0.3125em 0.625em ; /* 5px/16px  and 10px/16px*/
@@ -139,11 +142,12 @@ button{
 
 button:hover,
 .back-button:hover,
-#place-order-btn:hover{
+#place-order-btn:hover {
   cursor: pointer;
-  transition: all .1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   box-shadow: 0.15em 0.15em 0.25em #aaa;
 }
+
 
 
 /* Form Styles */
@@ -152,7 +156,7 @@ form {
   grid-gap: 1.5em;
 }
 
-fieldset{
+fieldset {
   background: #fdfdfd;
   border-radius: 0.3125em;
   padding: 0.5em;
@@ -165,17 +169,21 @@ fieldset[name="buttons"] {
   padding: 0;
 }
 
-ol[name="month-year"]{
+ol[name="month-year"] {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 0.3125em; /* 5/16px */
 }
 
 ol[name="month-year"] select,
 ol[name="month-year"] input,
 ol[name="city-state-zip"] li,
-input[name="cvv-number"]{
+input[name="cvv-number"] {
   width: auto;
+}
+
+ol[aria-hidden="true"] {
+  display: none;
 }
 
 /* Form Label and Input Styles */
@@ -184,7 +192,7 @@ label {
 }
 
 select {
-  height: 32px;
+  height: 2em;
 }
 
 input,
@@ -196,8 +204,7 @@ select {
 }
 
 input,
-select,
-button{ 
+select {
   background-color: inherit;
   font-size: inherit;
   font-family: inherit;
@@ -250,16 +257,16 @@ input:focus {
   width: 100%;
 }
 
-#checkout-nav li:first-child{
+#checkout-nav li:first-child {
   flex: 1 0 auto;
 }
 
-#checkout-nav li:first-child::before{
+#checkout-nav li:first-child::before {
   display: none;
 }
 
-#checkout-nav li:not(.nav-complete-page)::before{
-  color:transparent;
+#checkout-nav li:not(.nav-complete-page)::before {
+  color: transparent;
 }
 
 .nav-complete-page {
@@ -276,14 +283,14 @@ input:focus {
 
 #summary-header,
 #summary-items,
-#summary-footer{
+#summary-footer {
   margin-bottom: 0.5em; /* 8/16px */
   padding: 0 0.5em;
 }
 
 #summary-header[disabled="disabled"],
 #summary-items[disabled="disabled"],
-#summary-footer[disabled="disabled"]{
+#summary-footer[disabled="disabled"] {
   display: none;
 }
 
@@ -303,7 +310,7 @@ input:focus {
   font-size: 0.875em;
 }
 
-#summary-bar{
+#summary-bar {
   border: 0.0625em solid rgb(63,127,128);
   border-radius: 0.375em;
   margin-top: 0.5em;
@@ -328,22 +335,22 @@ input:focus {
 
 .item {
   grid-column: 1;
-  grid-row : span 2;
+  grid-row: span 2;
 }
 
 .item-name {
   grid-column: 2;
-  grid-row : 1;
+  grid-row: 1;
 }
 
 .item-price {
   grid-column: 3;
-  grid-row : 1;
+  grid-row: 1;
 }
 
 .item-size {
   grid-column: 2;
-  grid-row : 2;
+  grid-row: 2;
 }
 
 #summary-footer {
@@ -382,17 +389,18 @@ input:focus {
 }
 
 #review-page main ol {
-  grid-column : span 2;
+  grid-column: span 2;
 }
 
 /* Complete Page Styles */
-#complete-page body{
+#complete-page body {
   display: block;
   text-align: center;
 }
 
+
 @media screen and (min-width: 31.25em) { /* 500px/16px */
-  #review-page main li{
+  #review-page main li {
     display: grid;
     grid-template-columns: 0.5fr 1fr;
   }
@@ -401,7 +409,6 @@ input:focus {
   select {
     width: 60%;
   }
-  
 }
 
 @media screen and (min-width: 50em) { /* 800px/16px */
@@ -422,7 +429,7 @@ input:focus {
   }
 
   /* City-state-zip grid */
-  ol[name="city-state-zip"]{
+  ol[name="city-state-zip"] {
     display: grid;
     width: 50%;
     grid-template-rows: [city-start state-start]  auto [city-end state-end]
@@ -463,11 +470,10 @@ input:focus {
     grid-area: cvv;
   }
 
-
   /* Summary section styles */
   #summary {
     border-left: 0.0625em solid #aaa;
-    padding:  0 0.5em; 
+    padding: 0 0.5em;
   }
 
   #summary-bar {
@@ -480,11 +486,11 @@ input:focus {
 
   #summary-header,
   #summary-items,
-  #summary-bottom{
+  #summary-bottom {
     padding: 0;
   }
 
-  #show-btn{
+  #show-btn {
     display: none;
   }
 }
